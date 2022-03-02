@@ -38,7 +38,10 @@ export class SearchComponent implements OnInit {
 
       const data = {q:login.login, in:login.login}
       this.searchService.searchUser(data).subscribe((res:any)=>{
+        
+
           this.usersList = res['items'];
+          this.usersList.sort((a, b) => (a.login < b.login ? -1 : 1));
           this.spinner.hide();
       },err=>{
         console.log("err", err);

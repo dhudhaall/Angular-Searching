@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
+import { Sort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
@@ -14,7 +15,7 @@ import { SearchResultService } from 'src/app/shared/Services/search-result.servi
 export class ResultsComponent implements OnInit {
   @Input('usersList') usersList: Users[]=[];
 
-  displayedColumns: string[] = ['login', 'type', 'avatar_url'];
+  displayedColumns: string[] = ['avatar_url', 'login', 'type' ];
   dataSource = new MatTableDataSource<Users>();
   
   //material paginator intilization
@@ -37,6 +38,7 @@ export class ResultsComponent implements OnInit {
     this.dataSource.paginator = this.paginator as MatPaginator;
  
   }
+
 
 
 
